@@ -10,7 +10,7 @@ int Prompt(string message)
 int number = Prompt("Введите число: ");
 if (number / 100 > 0)
 {
-    number /= 100;
+    while (number > 1000) number /= 10;
     Console.WriteLine($"В третьей позиции число {number % 10}");
 }
-else Console.WriteLine("введенное число меньше 100");
+else Console.WriteLine("введенное число меньше 100, третьей цифры нет");

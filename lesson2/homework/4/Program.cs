@@ -3,10 +3,24 @@
 
 int Prompt(string message)
 {
-    System.Console.WriteLine(message);
+    System.Console.Write(message);
     int number = Convert.ToInt32(System.Console.ReadLine());
     return number;
 }
-int number=Prompt("Введите цифру дня недели");
-if(number==6||number==7) Console.Write("Выходной");
-else Console.Write("Рабочий день");
+
+bool ValidateNumber(int number)
+{
+    if (number < 1 || number > 7)
+    {
+        System.Console.WriteLine("Ошибка ввода числа");
+        return false;
+    }
+    return true;
+}
+
+int number = Prompt("Введите цифру дня недели: ");
+if (ValidateNumber(number))
+{
+    if (number == 6 || number == 7) Console.Write("Выходной");
+    else Console.Write("Рабочий день");
+}

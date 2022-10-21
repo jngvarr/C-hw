@@ -20,7 +20,7 @@ bool ValidateNumber(int number)
 link1: int number = Prompt("Введите трехзначное число: ");
 if (ValidateNumber(number))
 {
-    int midleDigit = number / 10;
-    System.Console.WriteLine($"Вторая цифра числа {number} равна {midleDigit % 10}");
+    int middleDigit = number / 10;
+    System.Console.WriteLine($"Вторая цифра числа {number} равна {middleDigit % 10}");
 }
 else goto link1;
