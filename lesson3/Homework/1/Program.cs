@@ -10,20 +10,31 @@ int Prompt(string msg)
     return int.Parse(Console.ReadLine());
 }
 
-bool ValidInput(int num)
+// bool ValidInput(int num)
+// {
+//     if (num < 10000 || num > 99999) 
+//     {
+//     Console.WriteLine("Введенные данные не соответствуют условию. ");
+//     return false;
+//     }
+//     else return true;
+// }
+// void ResultOutput(int num)
+// {
+//     if (num % 10 == num / 10000 && (num / 1000 % 10 == num / 10 % 10)) Console.Write($"Введенное число {num} - палиндром.");
+//     else Console.Write("Введено обычное пятизначное число");
+// }
+// int num = Prompt("Введите пятизначное число: ");
+// //if (ValidInput(num)) ResultOutput(num);
+// else Console.WriteLine("Попробуйте еще раз.");
+
+int x = 656656;
+int x1 = x; 
+int x2 = 0;
+while (x / 1 != 0)
 {
-    if (num < 10000 || num > 99999) 
-    {
-    Console.WriteLine("Введенные данные не соответствуют условию. ");
-    return false;
-    }
-    else return true;
+    x2 = x2 * 10;
+    x2 = x2 + x % 10; 
+    x = x / 10;
+    Console.WriteLine($"{x} {x2}");
 }
-void ResultOutput(int num)
-{
-    if (num % 10 == num / 10000 && (num / 1000 % 10 == num / 10 % 10)) Console.Write($"Введенное число {num} - палиндром.");
-    else Console.Write("Введено обычное пятизначное число");
-}
-int num = Prompt("Введите пятизначное число: ");
-if (ValidInput(num)) ResultOutput(num);
-else Console.WriteLine("Попробуйте еще раз.");

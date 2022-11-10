@@ -7,7 +7,7 @@ int Prompt(string message)
     return int.Parse(Console.ReadLine());
 }
 
-bool ValidateQuarter(quarter)
+bool ValidateQuarter(int quarter)
 {
     if (quarter < 0 || quarter > 4)
     {
@@ -20,8 +20,8 @@ bool ValidateQuarter(quarter)
 (int, int) FindCoords(int quarter); //Поиск шаблона координат
 {
     if (quarter == 1) return (1, 1);
-    if (quarter == 1) return (-1, 1);
-    if (quarter == 1) return (-1, -1);
+    if (quarter == 2) return (-1, 1);
+    if (quarter == 3) return (-1, -1);
     return (1, -1);
 }
 
