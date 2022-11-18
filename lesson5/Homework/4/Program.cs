@@ -2,19 +2,25 @@
 // Ввожу => 12
 // 1 2 2 3 3 3 4 4 4 4 5 5
 
-void OutputNumb(int numb)
+
+String OutputNumb(int numb)
 {
-    int limit = 0;
-    
-    for (int i = 1; i <= numb; i++)
-    { 
-        limit++;
-        if (limit == 12) break;
-        Console.Write(numb + " ");
-       
-       
-        if (i == numb) OutputNumb(numb + 1);
+    int sum = 0;
+    int j = 0;
+    if (numb == 1)
+    {
+        Console.Write("1");
     }
+    else
+    {
+        for (int i = 1; sum < numb; i++)
+        {
+            sum += i;
+            j = i;
+        }
+        Console.Write(OutputNumb(--numb) + " " + j);
+    }
+    return "";
 }
 
 OutputNumb(12);
