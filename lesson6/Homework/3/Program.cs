@@ -7,7 +7,7 @@
 
 int IntPrompt(string msg)
 {
-    Console.Write(msg + " ");
+    Console.Write(msg + " >");
     return int.Parse(Console.ReadLine());
 }
 
@@ -36,16 +36,7 @@ void PrintTwoDimArray(int[,] arr)
     }
 }
 
-void PrintArray(int[] arr)
-{
-    foreach (var item in arr)
-    {
-        Console.Write(item + " ");
-    }
-    Console.WriteLine();
-}
-
-int[] MaxMinDiffCalculate(int[,] arr)
+int RowsMaximumCalculate(int[,] arr)
 {
     int sum = 0;
     for (int i = 0; i < arr.GetLength(0); i++)
@@ -56,13 +47,35 @@ int[] MaxMinDiffCalculate(int[,] arr)
             if (arr[i, j] > max)
                 max = arr[i, j];
         }
-        Sum +=max;
+        sum += max;
     }
 
-    return max;
+    return sum;
 }
 
-int[,] arr = CreateTwoDimArray(2, 3);
+int ColumnsMinimumCalculate(int[,] arr)
+{
+    int sum = 0;
+    for (int j = 0; j < arr.GetLength(1); j++)
+    {
+        int min = arr[0, j];
+        for (int i = 0; i < arr.GetLength(0); i++)
+        {
+            if (arr[i, j] < min)
+                min = arr[i, j];
+        }
+        sum += min;
+    }
+
+    return sum;
+}
+
+int rows = IntPrompt($"Введите количество строк массива:");
+int columns = IntPrompt($"Введите количество столбцов массива:");
+int[,] arr = CreateTwoDimArray(rows, columns);
 PrintTwoDimArray(arr);
-int[] arrMax = MaxMinDiffCalculate(arr);
-PrintArray(arrMax);
+int max=RowsMaximumCalculate(arr);
+int min=ColumnsMinimumCalculate(arr);
+Console.WriteLine($"Сумма максимальных элементов строк массива: {max}.");
+Console.WriteLine($"Сумма минимальных элементов столбцов массива: {min}.");
+Console.WriteLine($"Раность полученных максимумов: {max-min}.");
