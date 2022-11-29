@@ -15,5 +15,9 @@ void EvenNum(int m, int n)
 }
 
 int m = 1;
-int n = 11;
+int n = 5;
+int l = 4;
+int k = 8;
 EvenNum(m, n);
+Console.WriteLine();
+EvenNum(l, k);
